@@ -7,6 +7,12 @@ import styles from "@/styles/topbar.module.css";
 import Image from "next/image";
 
 const Topbar = () => {
+  useEffect(() => {
+    typeof document !== undefined
+      ? require("bootstrap/dist/js/bootstrap")
+      : null;
+  }, []);
+
   const router = useRouter();
   function activeClass(path) {
     if (router.pathname === path) {
@@ -99,12 +105,8 @@ const Topbar = () => {
 
           <Image
             src="/assets/person/1.jpeg"
-            style={{
-              width: "35px",
-              height: "35px",
-              objectFit: "cover",
-              borderRadius: "50%",
-            }}
+            width={35}
+            height={35}
             className={styles.logo}
             alt=""
             onClick={() => router.push("/about")}
