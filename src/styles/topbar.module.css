@@ -1,0 +1,50 @@
+.navLinks {
+  color: white;
+  margin: 5px;
+}
+.navLinks:hover {
+  background-color: tomato;
+  border-radius: 5px;
+  color: white;
+  transition: all 0.2s ease-in;
+}
+.active {
+  background-color: tomato;
+  color: white;
+  border-radius: 5px;
+}
+.active:hover {
+  color: white;
+}
+.menuLinks {
+  display: block;
+}
+.menuLinkItems {
+  display: none;
+}
+
+@media screen and (max-width: 640px) {
+  .logo {
+    display: none;
+  }
+  .dropdown {
+    display: none;
+  }
+  .menuLinks {
+    display: none;
+  }
+  .menuLinkItems {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+  }
+  .menuLinkItems:hover {
+    background-color: tomato;
+    border-radius: 5px;
+    color: white;
+    transition: all 0.2s ease-in;
+  }
+}
