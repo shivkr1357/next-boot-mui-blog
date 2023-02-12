@@ -1,4 +1,45 @@
 .main {
   height: 100%;
-  min-height: 80vh;
+  min-height: 100vh;
+}
+.aboutCard {
+  width: 100%;
+  height: auto;
+  padding: 10px 30px;
+  margin: 10px 0px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.aboutCardHeading {
+  font-size: 30px;
+  padding-bottom: 5px;
+}
+.aboutCardText {
+  font-size: large;
+  font-weight: 500;
+}
+.DevCardsColumns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.DevCardsColumnsCard {
+  width: 80%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
