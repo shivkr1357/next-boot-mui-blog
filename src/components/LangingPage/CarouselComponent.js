@@ -39,7 +39,7 @@ const CarouselComponent = () => {
       itemClass="carousel-item-padding-40-px">
       {imageList.map((item, key) => {
         return (
-          <Fragment>
+          <Fragment key={key}>
             <Image
               key={key}
               width={300}
