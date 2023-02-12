@@ -1,5 +1,12 @@
 import React, { useEffect } from "react";
-import { Container, Form, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import {
+  Container,
+  Form,
+  Nav,
+  Navbar,
+  NavDropdown,
+  SplitButton,
+} from "react-bootstrap";
 import { menu, dropDownMenu } from "@/config";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -71,10 +78,11 @@ const Topbar = () => {
               );
             })}
 
-            <NavDropdown
-              className={styles.dropdown}
-              title={<span>Menu</span>}
-              id="navbarScrollingDropdown">
+            <SplitButton
+              className={`super-colors ${styles.dropdown}`}
+              title={<span>Interview QA</span>}
+              id="navbarScrollingDropdown"
+              variant="secondary">
               {dropDownMenu.map((item, key) => {
                 return (
                   <Link
@@ -83,22 +91,26 @@ const Topbar = () => {
                     href={item.path}
                     style={{
                       display: "flex",
-                      padding: "5px",
+                      width: "200px",
+                      padding: "10px",
+                      margin: "5px",
                       alignItems: "center",
                       justifyContent: "center",
                       textDecoration: "none",
+                      backgroundColor: "gray",
+                      color: "white",
                     }}>
                     {item.title}
                   </Link>
                 );
               })}
-            </NavDropdown>
+            </SplitButton>
           </Nav>
           <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
-              className="me-5"
+              className="me-3"
               aria-label="Search"
             />
           </Form>
@@ -107,6 +119,7 @@ const Topbar = () => {
             src="/assets/person/1.jpeg"
             width={35}
             height={35}
+            style={{ borderRadius: "50%", objectFit: "cover" }}
             className={styles.logo}
             alt=""
             onClick={() => router.push("/about")}

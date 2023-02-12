@@ -1,10 +1,5 @@
 export const menu = [
   {
-    id: "home",
-    path: "/",
-    title: "Home",
-  },
-  {
     id: "contact",
     path: "/contact",
     title: "Contact",
@@ -19,6 +14,11 @@ export const menu = [
     path: "/portfolio",
     title: "Portfolio",
   },
+  // {
+  //   id: "videos",
+  //   path: "/portfolio",
+  //   title: "Portfolio",
+  // },
 ];
 export const dropDownMenu = [
   {
@@ -40,5 +40,43 @@ export const dropDownMenu = [
     id: "home",
     path: "/static-pages/next-interview-qa",
     title: "NextJs Interview QA",
+  },
+];
+
+export const imageList = [
+  {
+    src: "/assets/post/1.jpeg",
+    alt: "First Slide",
+    caption: "First Slide",
+  },
+  {
+    src: "/assets/post/2.jpeg",
+    alt: "Second Slide",
+    caption: "Second Slide",
+  },
+  {
+    src: "/assets/post/3.jpeg",
+    alt: "Third Slide",
+    caption: "Third Slide",
+  },
+  {
+    src: "/assets/post/4.jpeg",
+    alt: "Fourth Slide",
+    caption: "Fourth Slide",
+  },
+  {
+    src: "/assets/post/5.jpeg",
+    alt: "Fifth Slide",
+    caption: "Fifth Slide",
+  },
+  {
+    src: "/assets/post/6.jpeg",
+    alt: "Sixth Slide",
+    caption: "Sixth Slide",
+  },
+  {
+    src: "/assets/post/7.jpeg",
+    alt: "Seventh Slide",
+    caption: "Seventh Slide",
   },
 ];
