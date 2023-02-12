@@ -11,7 +11,7 @@ const CookiesPolicy = () => {
           <h1>Cookie Policy for ItsIndianGuy</h1>
 
           <p>
-            This is the Cookie Policy for ItsIndianGuy, accessible from
+            This is the Cookie Policy for ItsIndianGuy&lsquo; accessible from
             https://itsindianguy.in
           </p>
 
@@ -21,12 +21,13 @@ const CookiesPolicy = () => {
 
           <p>
             As is common practice with almost all professional websites this
-            site uses cookies, which are tiny files that are downloaded to your
-            computer, to improve your experience. This page describes what
-            information they gather, how we use it and why we sometimes need to
-            store these cookies. We will also share how you can prevent these
-            cookies from being stored however this may downgrade or 'break'
-            certain elements of the sites functionality.
+            site uses cookies&lsquo; which are tiny files that are downloaded to
+            your computer&lsquo; to improve your experience. This page describes
+            what information they gather&lsquo; how we use it and why we
+            sometimes need to store these cookies. We will also share how you
+            can prevent these cookies from being stored however this may
+            downgrade or &apos;break&apos; certain elements of the sites
+            functionality.
           </p>
 
           <p>
@@ -104,7 +105,7 @@ const CookiesPolicy = () => {
                 we can continue to produce engaging content.
               </p>
               <p>
-                For more information on Google Analytics cookies, see the
+                For more information on Google Analytics cookies&lsquo; see the
                 official Google Analytics page.
               </p>
             </li>
@@ -118,10 +119,10 @@ const CookiesPolicy = () => {
                 {
                   "List the social networks whose features you have integrated your site"
                 }
-                , will set cookies through our site which may be used to enhance
-                your profile on their site or contribute to the data they hold
-                for various purposes outlined in their respective privacy
-                policies.
+                &lsquo; will set cookies through our site which may be used to
+                enhance your profile on their site or contribute to the data
+                they hold for various purposes outlined in their respective
+                privacy policies.
               </p>
             </li>
           </ul>
@@ -132,13 +133,13 @@ const CookiesPolicy = () => {
 
           <p>
             Hopefully that has clarified things for you and as was previously
-            mentioned if there is something that you aren't sure whether you
-            need or not it's usually safer to leave cookies enabled in case it
-            does interact with one of the features you use on our site.
+            mentioned if there is something that you aren&apos;t sure whether
+            you need or not it&apos;s usually safer to leave cookies enabled in
+            case it does interact with one of the features you use on our site.
           </p>
 
           <p>
-            For more general information on cookies, please read{" "}
+            For more general information on cookies&lsquo; please read{" "}
             <a href="https://www.cookiepolicygenerator.com/sample-cookies-policy/">
               the Cookies Policy article
             </a>

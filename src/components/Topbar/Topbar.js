@@ -4,6 +4,7 @@ import { menu, dropDownMenu } from "@/config";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import styles from "@/styles/topbar.module.css";
+import Image from "next/image";
 
 const Topbar = () => {
   const router = useRouter();
@@ -96,7 +97,7 @@ const Topbar = () => {
             />
           </Form>
 
-          <img
+          <Image
             src="/assets/person/1.jpeg"
             style={{
               width: "35px",
