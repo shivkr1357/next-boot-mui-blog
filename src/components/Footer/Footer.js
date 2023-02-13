@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import React from "react";
 import FooterPart1 from "./FooterPart1";
 import FooterPart2 from "./FooterPart2";
@@ -28,6 +29,9 @@ const Footer = () => {
             <FooterPart1 />
           </div>
         </div>
+        <Typography color={"white"} align={"center"}>
+          Copyright &copy; {new Date().getFullYear()} {" itsindianguy.in"}
+        </Typography>
       </div>
     </footer>
   );

@@ -4,13 +4,19 @@ import { Fragment } from "react";
 import CarouselComponent from "@/components/LangingPage/CarouselComponent";
 import AboutCard from "@/components/LangingPage/AboutCard";
 import DevCards from "@/components/LangingPage/DevCards";
+import PostCards from "@/components/LangingPage/PostCards";
+
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <Fragment>
       <Head>
         <title>ItsIndianguy</title>
-        <meta name="description" content="Homepage for the blog app" />
+        <meta
+          name="description"
+          content="Read best Interview Questions, Best blog for JavaScript, React Js What are the advantages of React js . React JS Interview Q&A. Node JS Interview Q&A."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className={`container-fluid ${styles.main}`}>
@@ -25,9 +31,13 @@ export default function Home() {
           <DevCards />
         </section>
         <section className="row mt-3 p-2">
-          <div className="col-md-2">Hello there</div>
-          <div className="col-md-7">Hello there</div>
-          <div className="col-md-2">Hello there</div>
+          <h1>Post Highlights</h1>
+          <div className={styles.postHighlights}>
+            <PostCards />
+            <PostCards />
+            <PostCards />
+            <PostCards />
+          </div>
         </section>
       </main>
     </Fragment>

@@ -43,3 +43,13 @@
   -webkit-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
+.postHighlights {
+  display: flex;
+  justify-content: center;
+}
+
+.postCards {
+  display: flex;
+  padding: 10px;
+  flex-wrap: wrap;
+}
