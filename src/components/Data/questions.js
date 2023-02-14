@@ -244,3 +244,36 @@ export const jsQuestions = [
     ans: "The most known are: React (used for UI) Although React js not a framework, it is a library which is used to develope the UI of application based on component , Angular (web dev), Vue (UI), JQuery (client-side web dev), Ember (scalable web apps) and Node (server-side web dev). Node is also not the framework, it is a runtime environment for building server side web applications .",
   },
 ];
+
+export const nextJsQuestions = [
+  {
+    id: 1,
+    que: "What is Next js?",
+    ans: " Next Js is a javascript framework build on top of React js Library for obtaining its most features and overcome the drawbacks. It is mainly known for its server side rendering and SEO of the page.",
+  },
+  {
+    id: 2,
+    que: "Mostly for which type of websites is Next JS used?",
+    ans: "Several types of websites and applications can be built. But the most popular are- <ul><li>Desktop websites</li><li>Static websites</li><li>Server rendered applications</li><li>SEO friendly websites</li><li>Progressive web applications (PWA)</li>",
+  },
+  {
+    id: 3,
+    que: "Can we use Redux with Next Js ?",
+    ans: "Yes, it is possible to use Next js with redux.",
+  },
+  {
+    id: 4,
+    que: "What is SSR?",
+    ans: "SSR stands for Server Side Rendering. This enables on the server of a client-side page app, then we can send that rendered page to that client. By this way the page loads sooner as browser gets access to the pages sooner.",
+  },
+  {
+    id: 5,
+    que: "Is Next Js backend, frontend or Full stack ?",
+    ans: "Next Js is full stack.This means that it allows rendering client side code as well as server side code or content. It is the main reason it is favoured on top of react, as react only allows frontend development without server side contents",
+  },
+  {
+    id: 6,
+    que: "What is DOM?",
+    ans: "DOM is Document Object Model, It means it is the object representation of the elements of the HTML. The User Interface and our code is kind of bridged by it. And it contains tree like structure having parent-child relationship from top to bottom.",
+  },
+];

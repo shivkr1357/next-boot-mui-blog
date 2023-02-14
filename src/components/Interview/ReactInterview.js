@@ -1,10 +1,9 @@
-import React, { Fragment } from "react";
-// import styles from "@/styles/Interview.module.css";
-import { jsQuestions } from "../Data/questions";
 import { Box, Stack, Typography } from "@mui/material";
+import React, { Fragment } from "react";
+import { reactQuestions } from "../Data/questions";
 import { renderHTML } from "../helpers/renderHTML";
 
-const JsInterview = () => {
+const ReactInterview = () => {
   return (
     <Fragment>
       <Typography
@@ -12,14 +11,14 @@ const JsInterview = () => {
         style={{
           padding: "10px",
           fontWeight: 800,
-          fontSize: "20px",
+          fontSize: "22px",
           display: "flex",
           fontFamily: "Roboto",
         }}>
-        JavaScript Top Interview Questions
+        React Js Top Interview Questions
       </Typography>
 
-      {jsQuestions.map((data, key) => {
+      {reactQuestions.map((data, key) => {
         return (
           <Stack direction="row" spacing={2} key={key}>
             <Box
@@ -33,22 +32,14 @@ const JsInterview = () => {
                   fontWeight: 900,
                   fontFamily: "Roboto",
                 }}>
-                <Typography
-                  variant="h6"
-                  sx={{
-                    fontFamily: "Roboto",
-                    fontSize: "20px",
-                  }}>
+                <Typography variant="h6">
                   <b>{data.id + "." + data.que}</b>
                 </Typography>
               </label>
               <label htmlFor="answer">
                 <Typography
                   variant="p"
-                  sx={{
-                    fontFamily: "Roboto",
-                    fontSize: "16px",
-                  }}>
+                  sx={{ fontFamily: "Roboto", paddingTop: "20px" }}>
                   {renderHTML(data.ans)}
                 </Typography>
               </label>
@@ -60,4 +51,4 @@ const JsInterview = () => {
   );
 };
 
-export default JsInterview;
+export default ReactInterview;
