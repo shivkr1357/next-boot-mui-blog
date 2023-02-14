@@ -6,13 +6,11 @@ import AboutCard from "@/components/LangingPage/AboutCard";
 import DevCards from "@/components/LangingPage/DevCards";
 import PostCards from "@/components/LangingPage/PostCards";
 
-import { motion } from "framer-motion";
-
 export default function Home() {
   return (
     <Fragment>
       <Head>
-        <title>ItsIndianguy</title>
+        <title>ItsIndianGuy</title>
         <meta
           name="description"
           content="Read best Interview Questions, Best blog for JavaScript, React Js What are the advantages of React js . React JS Interview Q&A. Node JS Interview Q&A."

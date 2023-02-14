@@ -45,11 +45,15 @@
 }
 .postHighlights {
   display: flex;
+  width: 100%;
   justify-content: center;
+  /* max-width: 800px; */
+  flex-wrap: wrap;
+  /* justify-content: center; */
 }
 
 .postCards {
   display: flex;
-  padding: 10px;
+  flex-direction: row;
   flex-wrap: wrap;
 }

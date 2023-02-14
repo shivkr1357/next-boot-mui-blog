@@ -1,7 +1,14 @@
+import JsInterview from "@/components/Interview/JsInterview";
 import React from "react";
 
 const javacriptQa = () => {
-  return <div>javacript-qa</div>;
+  return (
+    <section className="container">
+      <div className="row">
+        <JsInterview />
+      </div>
+    </section>
+  );
 };
 
 export default javacriptQa;
