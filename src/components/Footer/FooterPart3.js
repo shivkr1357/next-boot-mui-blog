@@ -2,8 +2,11 @@ import styled from "@emotion/styled";
 import { Box } from "@mui/material";
 import React from "react";
 import styles from "@/styles/footer.module.css";
+import { useRouter } from "next/router";
 
 const FooterPart3 = () => {
+  const router = useRouter();
+
   const InterviewBox = styled(Box)({
     display: "flex",
     justifyContent: "center",
@@ -21,7 +24,7 @@ const FooterPart3 = () => {
         <InterviewBox
           className={styles.questionBox}
           onClick={() => {
-            navigate("/blog");
+            router.push("/blog");
             window.scrollTo(0, 0);
           }}>
           Blog
@@ -29,21 +32,21 @@ const FooterPart3 = () => {
         <InterviewBox
           className={styles.questionBox}
           onClick={() => {
-            navigate("/interview-qa/js-interview-questions");
+            router.push("/static-pages/javacript-qa");
           }}>
           JavaScript Interview Q/A
         </InterviewBox>
         <InterviewBox
           className={styles.questionBox}
           onClick={() => {
-            navigate("/interview-qa/react-js-interview-questions");
+            router.push("/static-pages/react-interview-qa");
             window.scrollTo(0, 0);
           }}>
           React Js Interview Q/A
         </InterviewBox>
         <InterviewBox
           onClick={() => {
-            navigate("/interview-qa/node-js-interview-questions");
+            router.push("/static-pages/node-interview-qa");
             window.scrollTo(0, 0);
           }}>
           Node Js Interview Q/A

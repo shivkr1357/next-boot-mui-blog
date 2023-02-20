@@ -1,11 +1,19 @@
 import { Box, Stack } from "@mui/material";
+import Head from "next/head";
 import React from "react";
 import { Fragment } from "react";
 
 const DataSafety = () => {
   return (
     <Fragment>
-      <Stack direction="row">
+      <Head>
+        <title>Data Safety | ItsIndianGuy </title>
+        <meta
+          name="description"
+          content="Data Safety for ItsIndianGuy | We value data the most, please be assured that any data you'll enter this site will not be leaked | Please agree to our data safety policy for getting the best possible performance"
+        />
+      </Head>
+      <Stack direction="row" p={1}>
         <Box flex={1} sx={{ display: { xs: "none", sm: "flex" } }}></Box>
         <Box flex={4}>
           <br />

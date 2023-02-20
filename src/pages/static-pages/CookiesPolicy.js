@@ -1,11 +1,19 @@
 import { Box, Stack } from "@mui/material";
+import Head from "next/head";
 import React from "react";
 import { Fragment } from "react";
 
 const CookiesPolicy = () => {
   return (
     <Fragment>
-      <Stack direction="row">
+      <Head>
+        <title>Cookie Policy | ItsIndianGuy </title>
+        <meta
+          name="description"
+          content="Cookie Policy for ItsIndianGuy | We uses cookies for making it best experiance for you | Please agree to our cookies policy for getting the best possible performance"
+        />
+      </Head>
+      <Stack direction="row" p={2}>
         <Box flex={1} sx={{ display: { xs: "none", sm: "flex" } }}></Box>
         <Box flex={4}>
           <h1>Cookie Policy for ItsIndianGuy</h1>

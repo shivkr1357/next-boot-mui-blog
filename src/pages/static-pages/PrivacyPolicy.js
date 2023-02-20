@@ -1,11 +1,19 @@
 import { Box, Stack } from "@mui/material";
+import Head from "next/head";
 import React from "react";
 import { Fragment } from "react";
 
 const PrivacyPolicy = () => {
   return (
     <Fragment>
-      <Stack direction="row">
+      <Head>
+        <title>Privacy Policy | ItsIndianGuy </title>
+        <meta
+          name="description"
+          content="Privacy Policy for ItsIndianGuy | We do not disclose data at any cost of you | Please agree to our privacy policy for getting the best possible performance"
+        />
+      </Head>
+      <Stack direction="row" p={2}>
         <Box flex={1} sx={{ display: { xs: "none", sm: "flex" } }}></Box>
         <Box flex={4}>
           <h1>Privacy Policy</h1>

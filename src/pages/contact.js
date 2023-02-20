@@ -6,7 +6,7 @@ const contact = () => {
   return (
     <Fragment>
       <Head>
-        <title>ItsIndianguy</title>
+        <title> Contact Us | ItsIndianguy</title>
         <meta name="description" content="Homepage for the blog app" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
