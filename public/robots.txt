@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://itsindianguy.in
+
+# Sitemaps
+Sitemap: https://itsindianguy.in/sitemap.xml
