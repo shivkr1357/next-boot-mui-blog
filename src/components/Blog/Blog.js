@@ -18,6 +18,9 @@ const Blog = () => {
       <BlogCard />
       <BlogCard />
       <BlogCard />
+      <BlogCard />
+      <BlogCard />
+      <BlogCard />
     </Stack>
   );
 };

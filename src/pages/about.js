@@ -14,14 +14,14 @@ const about = () => {
           <div className="col-lg-8">
             <h1 className={styles.headingFirst}>About Us</h1>
             <h3 className={styles.headingGrow}>
-              We constantly build videos on Youtube , write tech articles and
-              teach prople so that they can also create awesome Projects from
-              Scratch and grow with us
+              We constantly build videos on Youtube &#44; write tech articles
+              and teach prople so that they can also create awesome Projects
+              from Scratch and grow with us
             </h3>
             <h4 className={styles.headingFour}>
               You can check out all the social media availability of our site
-              and the creator so that you can get to know what we do and you'll
-              get to know more about us.
+              and the creator so that you can get to know what we do and
+              you&apos;ll get to know more about us.
             </h4>
             <h5 className={styles.headingLast}>
               You can follow us on different platform so that you can get daily
