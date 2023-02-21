@@ -119,7 +119,11 @@ const Topbar = () => {
             src="/assets/person/1.jpeg"
             width={35}
             height={35}
-            style={{ borderRadius: "50%", objectFit: "cover" }}
+            style={{
+              borderRadius: "50%",
+              objectFit: "cover",
+              cursor: "pointer",
+            }}
             className={styles.logo}
             alt=""
             onClick={() => router.push("/about")}

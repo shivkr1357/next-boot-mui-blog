@@ -1,9 +1,9 @@
 export const menu = [
-  {
-    id: "contact",
-    path: "/contact",
-    title: "Contact",
-  },
+  // {
+  //   id: "contact",
+  //   path: "/contact",
+  //   title: "Contact",
+  // },
   {
     id: "blog",
     path: "/blog",
