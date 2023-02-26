@@ -1,8 +1,11 @@
 import Blog from "@/components/Blog/Blog";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import Head from "next/head";
 import React, { Fragment } from "react";
+import { db } from "../../firebase/clientApp";
 
-const blog = () => {
+export default function blog({ allPosts }) {
+  // console.log(allPosts);
   return (
     <Fragment>
       <Head>
@@ -13,10 +16,28 @@ const blog = () => {
         />
       </Head>
       <section className="container-fluid">
-        <Blog />
+        <Blog posts={allPosts} />
       </section>
     </Fragment>
   );
-};
+}
 
-export default blog;
+export const getServerSideProps = async () => {
+  let posts = [];
+
+  const postCollectionRef = query(
+    collection(db, "posts"),
+    orderBy("created", "desc")
+  );
+
+  const res = await getDocs(postCollectionRef);
+  res.docs.map((doc) => {
+    posts.push({ ...doc.data(), id: doc.id });
+  });
+
+  const allPosts = JSON.stringify(posts);
+
+  return {
+    props: { allPosts },
+  };
+};
