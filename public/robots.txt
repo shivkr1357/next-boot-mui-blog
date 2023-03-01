@@ -1,9 +1,14 @@
 # *
 User-agent: *
+Disallow: /404
+
+# *
+User-agent: *
 Allow: /
 
 # Host
-Host: https://itsindianguy.in
+Host: http://itsindianguy.in
 
 # Sitemaps
-Sitemap: https://itsindianguy.in/sitemap.xml
+Sitemap: http://itsindianguy.in/sitemap.xml
+Sitemap: http://itsindianguy.in/server-sitemap.xml

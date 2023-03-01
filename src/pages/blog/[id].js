@@ -1,17 +1,41 @@
 import { db } from "../../../firebase/clientApp";
 import React, { Fragment } from "react";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, query } from "firebase/firestore";
 import { Box, CircularProgress, Stack, Typography } from "@mui/material";
 import { ThumbDown, ThumbUp } from "@mui/icons-material";
 import { renderHTML } from "@/components/helpers/renderHTML";
 
-import SyntaxHighlighter from "react-syntax-highlighter";
-import Image from "next/legacy/image";
+import Head from "next/head";
 // import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-const id = ({ id, author, category, title, desc, newDate }) => {
+const id = ({ post }) => {
+  const singlePost = JSON.parse(post);
+
+  var creation = new Date(singlePost.created.seconds * 1000);
+  const formattedDate = creation.toLocaleDateString("en-IN");
+  const formattedTime = creation.toLocaleString("en-IN", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  });
+  const newDate = `${formattedDate} ${formattedTime}`;
+
   return (
     <Fragment>
+      <Head>
+        <title>{`${singlePost.title} | ItsIndianGuy`}</title>
+        <meta
+          name="description"
+          content={singlePost.desc.substring(0, 200)}
+          key="desc"
+        />
+        <meta property="article:author" content={`${singlePost.author.name}`} />
+        <meta
+          property="article:publisher"
+          content="https://www.facebook.com/itsindianguy/"
+        />
+        <meta name="robots" content="all" />
+      </Head>
       <Stack direction="row">
         <Box flex={1} sx={{ display: { xs: "none", sm: "block" } }}></Box>
         <Box
@@ -31,8 +55,8 @@ const id = ({ id, author, category, title, desc, newDate }) => {
                 fontSize: "30px",
                 fontWeight: 600,
               }}>
-              {title ? (
-                title
+              {singlePost.title ? (
+                singlePost.title
               ) : (
                 <Box sx={{ display: "flex", justifyContent: "center" }}>
                   <CircularProgress sx={{ alignContents: "center" }} />
@@ -45,7 +69,7 @@ const id = ({ id, author, category, title, desc, newDate }) => {
                 fontSize: "16px",
                 whiteSpace: "pre-line",
               }}>
-              {renderHTML(desc)}
+              {renderHTML(singlePost.desc)}
             </Box>
             <Box>
               <Stack
@@ -75,19 +99,12 @@ export const getServerSideProps = async (context) => {
   const postCollectionRef = doc(db, "posts", id);
   const data = await getDoc(postCollectionRef);
 
-  var { author, category, title, desc, created } = data.data();
+  var post = data.data();
 
-  var creation = new Date(created.seconds * 1000);
-  const formattedDate = creation.toLocaleDateString("en-IN");
-  const formattedTime = creation.toLocaleString("en-IN", {
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
-  });
-  const newDate = `${formattedDate} ${formattedTime}`;
+  var post = JSON.stringify(post);
 
   return {
-    props: { id, author, title, desc, newDate },
+    props: { post },
   };
 };
 
