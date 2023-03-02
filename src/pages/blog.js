@@ -22,7 +22,7 @@ export default function blog({ allPosts }) {
   );
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   let posts = [];
 
   const postCollectionRef = query(
