@@ -26,7 +26,7 @@ const id = () => {
         <title>{`Blog | ItsIndianGuy`}</title>
         <meta
           name="description"
-          content={singlePost.desc.substring(0, 200)}
+          content={"singlePost.desc.substring(0, 200)"}
           key="desc"
         />
         <meta property="article:author" content={`Shiv`} />
@@ -92,19 +92,41 @@ const id = () => {
     </Fragment>
   );
 };
+export const getStaticProps = async ({ params }) => {
+  const getBlogsFromDB = async (id) => {
+    const postCollectionRef = doc(db, "posts", id);
+    const data = await getDoc(postCollectionRef);
 
-// export const getServerSideProps = async (context) => {
-//   var id = context.query["id"];
-//   const postCollectionRef = doc(db, "posts", id);
-//   const data = await getDoc(postCollectionRef);
+    var post = data.data();
 
-//   var post = data.data();
+    return post;
+  };
 
-//   var post = JSON.stringify(post);
+  return {
+    props: {
+      blog: await getBlogsFromDB(params.id),
+    },
+    revalidate: 60,
+  };
+};
 
-//   return {
-//     props: { post },
-//   };
-// };
+export const getStaticPaths = async () => {
+  let posts = [];
+
+  const postCollectionRef = query(
+    collection(db, "posts"),
+    orderBy("created", "desc")
+  );
+  const res = await getDocs(postCollectionRef);
+  res.docs.map((doc) => {
+    posts.push({ ...doc.data(), id: doc.id });
+  });
+
+  const paths = posts.map((post) => {
+    params: post.id;
+  });
+
+  return { paths, fallback: "blocking" };
+};
 
 export default id;
