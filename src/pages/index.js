@@ -8,28 +8,28 @@ import PostCards from "@/components/LangingPage/PostCards";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { db } from "../../firebase/clientApp";
 
-export async function getServerSideProps() {
-  let posts = [];
+// export async function getServerSideProps() {
+//   let posts = [];
 
-  const postCollectionRef = query(
-    collection(db, "posts"),
-    orderBy("created", "desc")
-  );
+//   const postCollectionRef = query(
+//     collection(db, "posts"),
+//     orderBy("created", "desc")
+//   );
 
-  const res = await getDocs(postCollectionRef);
-  res.docs.map((doc) => {
-    posts.push({ ...doc.data(), id: doc.id });
-  });
+//   const res = await getDocs(postCollectionRef);
+//   res.docs.map((doc) => {
+//     posts.push({ ...doc.data(), id: doc.id });
+//   });
 
-  const allPosts = JSON.stringify(posts);
+//   const allPosts = JSON.stringify(posts);
 
-  return {
-    props: { allPosts },
-  };
-}
+//   return {
+//     props: { allPosts },
+//   };
+// }
 
-export default function Home({ allPosts }) {
-  const posts = JSON.parse(allPosts);
+export default function Home() {
+  // const posts = JSON.parse(allPosts);
 
   return (
     <Fragment>
@@ -60,11 +60,11 @@ export default function Home({ allPosts }) {
         </section>
         <section className="row mt-3 p-2">
           <h1>Post Highlights</h1>
-          <div className={styles.postHighlights}>
+          {/* <div className={styles.postHighlights}>
             {posts.map((post, key) => {
               return <PostCards post={post} key={key} />;
             })}
-          </div>
+          </div> */}
         </section>
       </main>
     </Fragment>
