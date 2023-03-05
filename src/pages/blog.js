@@ -4,8 +4,9 @@ import Head from "next/head";
 import React, { Fragment } from "react";
 import { db } from "../../firebase/clientApp";
 
-export default function blog({ allPosts }) {
+export default function blog() {
   // console.log(allPosts);
+
   return (
     <Fragment>
       <Head>
@@ -16,28 +17,31 @@ export default function blog({ allPosts }) {
         />
       </Head>
       <section className="container-fluid">
-        <Blog posts={allPosts} />
+        <Blog />
+        <Blog />
+        <Blog />
+        <Blog />
       </section>
     </Fragment>
   );
 }
 
-export const getServerSideProps = async () => {
-  let posts = [];
+// export const getServerSideProps = async () => {
+//   let posts = [];
 
-  const postCollectionRef = query(
-    collection(db, "posts"),
-    orderBy("created", "desc")
-  );
+//   const postCollectionRef = query(
+//     collection(db, "posts"),
+//     orderBy("created", "desc")
+//   );
 
-  const res = await getDocs(postCollectionRef);
-  res.docs.map((doc) => {
-    posts.push({ ...doc.data(), id: doc.id });
-  });
+//   const res = await getDocs(postCollectionRef);
+//   res.docs.map((doc) => {
+//     posts.push({ ...doc.data(), id: doc.id });
+//   });
 
-  const allPosts = JSON.stringify(posts);
+//   const allPosts = JSON.stringify(posts);
 
-  return {
-    props: { allPosts },
-  };
-};
+//   return {
+//     props: { allPosts },
+//   };
+// };

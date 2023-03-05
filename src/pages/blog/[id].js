@@ -8,28 +8,28 @@ import { renderHTML } from "@/components/helpers/renderHTML";
 import Head from "next/head";
 // import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-const id = ({ post }) => {
-  const singlePost = JSON.parse(post);
+const id = () => {
+  // const singlePost = JSON.parse(post);
 
-  var creation = new Date(singlePost.created.seconds * 1000);
-  const formattedDate = creation.toLocaleDateString("en-IN");
-  const formattedTime = creation.toLocaleString("en-IN", {
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
-  });
-  const newDate = `${formattedDate} ${formattedTime}`;
+  // var creation = new Date(singlePost.created.seconds * 1000);
+  // const formattedDate = creation.toLocaleDateString("en-IN");
+  // const formattedTime = creation.toLocaleString("en-IN", {
+  //   hour: "numeric",
+  //   minute: "numeric",
+  //   hour12: true,
+  // });
+  // const newDate = `${formattedDate} ${formattedTime}`;
 
   return (
     <Fragment>
       <Head>
-        <title>{`${singlePost.title} | ItsIndianGuy`}</title>
+        <title>{`Blog | ItsIndianGuy`}</title>
         <meta
           name="description"
           content={singlePost.desc.substring(0, 200)}
           key="desc"
         />
-        <meta property="article:author" content={`${singlePost.author.name}`} />
+        <meta property="article:author" content={`Shiv`} />
         <meta
           property="article:publisher"
           content="https://www.facebook.com/itsindianguy/"
@@ -55,22 +55,21 @@ const id = ({ post }) => {
                 fontSize: "30px",
                 fontWeight: 600,
               }}>
-              {singlePost.title ? (
+              HELLO
+              {/* {singlePost.title ? (
                 singlePost.title
               ) : (
                 <Box sx={{ display: "flex", justifyContent: "center" }}>
                   <CircularProgress sx={{ alignContents: "center" }} />
                 </Box>
-              )}
+              )} */}
             </Box>
             <Box
               sx={{
                 ":first-letter": { fontSize: "35px" },
                 fontSize: "16px",
                 whiteSpace: "pre-line",
-              }}>
-              {renderHTML(singlePost.desc)}
-            </Box>
+              }}></Box>
             <Box>
               <Stack
                 direction="row"
@@ -94,18 +93,18 @@ const id = ({ post }) => {
   );
 };
 
-export const getServerSideProps = async (context) => {
-  var id = context.query["id"];
-  const postCollectionRef = doc(db, "posts", id);
-  const data = await getDoc(postCollectionRef);
+// export const getServerSideProps = async (context) => {
+//   var id = context.query["id"];
+//   const postCollectionRef = doc(db, "posts", id);
+//   const data = await getDoc(postCollectionRef);
 
-  var post = data.data();
+//   var post = data.data();
 
-  var post = JSON.stringify(post);
+//   var post = JSON.stringify(post);
 
-  return {
-    props: { post },
-  };
-};
+//   return {
+//     props: { post },
+//   };
+// };
 
 export default id;

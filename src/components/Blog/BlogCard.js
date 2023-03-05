@@ -30,19 +30,19 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function BlogCard({ data }) {
+export default function BlogCard() {
   const router = useRouter();
 
   const [expanded, setExpanded] = React.useState(false);
 
-  var creation = new Date(data.created.seconds * 1000);
-  const formattedDate = creation.toLocaleDateString("en-IN");
-  const formattedTime = creation.toLocaleString("en-IN", {
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
-  });
-  const newDate = `${formattedDate}`;
+  // var creation = new Date(data.created.seconds * 1000);
+  // const formattedDate = creation.toLocaleDateString("en-IN");
+  // const formattedTime = creation.toLocaleString("en-IN", {
+  //   hour: "numeric",
+  //   minute: "numeric",
+  //   hour12: true,
+  // });
+  // const newDate = `${formattedDate}`;
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -51,7 +51,7 @@ export default function BlogCard({ data }) {
   return (
     <Stack p={2}>
       <Card sx={{ maxWidth: 270 }}>
-        <Link href={`/blog/${data.id}`} style={{ textDecoration: "none" }}>
+        <Link href={`/blog`} style={{ textDecoration: "none" }}>
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -63,8 +63,8 @@ export default function BlogCard({ data }) {
                 <MoreVertIcon />
               </IconButton>
             }
-            title={data.title}
-            subheader={format(newDate, "en_US")}
+            title={"Title"}
+            subheader="a"
           />
         </Link>
         <CardMedia
@@ -90,9 +90,9 @@ export default function BlogCard({ data }) {
             expand={expanded}
             aria-expanded={expanded}
             aria-label="show more">
-            <Link href={`/blog/${data.id}`}>
+            {/* <Link href={`/blog/${data.id}`}>
               <ExpandMoreIcon />
-            </Link>
+            </Link> */}
           </ExpandMore>
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -102,7 +102,7 @@ export default function BlogCard({ data }) {
               Heat 1/2 cup of the broth in a pot until simmering, add saffron
               and set aside for 10 minutes.
             </Typography>
-            <Typography paragraph>{data.desc}</Typography>
+            <Typography paragraph>{"data.desc"}</Typography>
             {/* <Typography paragraph></Typography>
             <Typography>
               Set aside off of the heat to let rest for 10 minutes, and then
