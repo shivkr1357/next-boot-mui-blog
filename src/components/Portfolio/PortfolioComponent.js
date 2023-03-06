@@ -16,9 +16,9 @@ const PortfolioComponent = () => {
         <Image
           width={400}
           height={400}
-          src="/assets/person/2.jpeg"
+          src="/assets/profile/profile_pic.jpg"
           alt="Developer Profile Image"
-          style={{ objectFit: "contain", borderRadius: "20px" }}
+          style={{ objectFit: "cover", borderRadius: "20px" }}
         />
       </Box>
       <Box>

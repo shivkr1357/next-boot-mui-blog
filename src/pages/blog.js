@@ -23,7 +23,7 @@ export default function blog() {
           content="Read the best blogs of Javascript get the best experience | We provide data based on our own experience | Start your Web Dev journey by knowing the topmost cheat sheets"
         />
       </Head>
-      <section className="container-fluid">
+      <section className="container-fluid d-flex">
         <Blog />
         <Blog />
         <Blog />

@@ -1,6 +1,13 @@
 import { db } from "../../../firebase/clientApp";
 import React, { Fragment } from "react";
-import { collection, doc, getDoc, getDocs, query } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  orderBy,
+  query,
+} from "firebase/firestore";
 import { Box, CircularProgress, Stack, Typography } from "@mui/material";
 import { ThumbDown, ThumbUp } from "@mui/icons-material";
 import { renderHTML } from "@/components/helpers/renderHTML";
@@ -92,41 +99,41 @@ const id = () => {
     </Fragment>
   );
 };
-export const getStaticProps = async ({ params }) => {
-  const getBlogsFromDB = async (id) => {
-    const postCollectionRef = doc(db, "posts", id);
-    const data = await getDoc(postCollectionRef);
+// export const getStaticProps = async ({ params }) => {
+//   const getBlogsFromDB = async (id) => {
+//     const postCollectionRef = doc(db, "posts", id);
+//     const data = await getDoc(postCollectionRef);
 
-    var post = data.data();
+//     var post = data.data();
 
-    return post;
-  };
+//     return post;
+//   };
 
-  return {
-    props: {
-      blog: await getBlogsFromDB(params.id),
-    },
-    revalidate: 60,
-  };
-};
+//   return {
+//     props: {
+//       blog: await getBlogsFromDB(params.id),
+//     },
+//     revalidate: 60,
+//   };
+// };
 
-export const getStaticPaths = async () => {
-  let posts = [];
+// export const getStaticPaths = async () => {
+//   let posts = [];
 
-  const postCollectionRef = query(
-    collection(db, "posts"),
-    orderBy("created", "desc")
-  );
-  const res = await getDocs(postCollectionRef);
-  res.docs.map((doc) => {
-    posts.push({ ...doc.data(), id: doc.id });
-  });
+//   const postCollectionRef = query(
+//     collection(db, "posts"),
+//     orderBy("created", "desc")
+//   );
+//   const res = await getDocs(postCollectionRef);
+//   res.docs.map((doc) => {
+//     posts.push({ ...doc.data(), id: doc.id });
+//   });
 
-  const paths = posts.map((post) => {
-    params: post.id;
-  });
+//   const paths = posts.map((post) => {
+//     params: post.id;
+//   });
 
-  return { paths, fallback: "blocking" };
-};
+//   return { paths, fallback: "blocking" };
+// };
 
 export default id;
