@@ -30,19 +30,19 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function BlogCard() {
+export default function BlogCard({ post }) {
   const router = useRouter();
 
   const [expanded, setExpanded] = React.useState(false);
 
-  // var creation = new Date(data.created.seconds * 1000);
-  // const formattedDate = creation.toLocaleDateString("en-IN");
-  // const formattedTime = creation.toLocaleString("en-IN", {
-  //   hour: "numeric",
-  //   minute: "numeric",
-  //   hour12: true,
-  // });
-  // const newDate = `${formattedDate}`;
+  var creation = new Date(post.created.seconds * 1000);
+  const formattedDate = creation.toLocaleDateString("en-IN");
+  const formattedTime = creation.toLocaleString("en-IN", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  });
+  const newDate = `${formattedDate}`;
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -51,7 +51,7 @@ export default function BlogCard() {
   return (
     <Stack p={2}>
       <Card sx={{ maxWidth: 270 }}>
-        <Link href={`/blog`} style={{ textDecoration: "none" }}>
+        <Link href={`/blog/${post.id}`} style={{ textDecoration: "none" }}>
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -63,8 +63,8 @@ export default function BlogCard() {
                 <MoreVertIcon />
               </IconButton>
             }
-            title={"Title"}
-            subheader="a"
+            title={post.title}
+            subheader={newDate}
           />
         </Link>
         <CardMedia
@@ -75,7 +75,7 @@ export default function BlogCard() {
         />
         <CardContent>
           <Typography variant="body2" color="text.secondary">
-            {"data.desc"}
+            {post.desc.substring(0, 100) + "..."}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
@@ -90,7 +90,7 @@ export default function BlogCard() {
             expand={expanded}
             aria-expanded={expanded}
             aria-label="show more">
-            {/* <Link href={`/blog/${data.id}`}>
+            {/* <Link href={`/blog/${post.id}`}>
               <ExpandMoreIcon />
             </Link> */}
           </ExpandMore>
@@ -102,7 +102,7 @@ export default function BlogCard() {
               Heat 1/2 cup of the broth in a pot until simmering, add saffron
               and set aside for 10 minutes.
             </Typography>
-            <Typography paragraph>{"data.desc"}</Typography>
+            <Typography paragraph>{"post.desc"}</Typography>
             {/* <Typography paragraph></Typography>
             <Typography>
               Set aside off of the heat to let rest for 10 minutes, and then

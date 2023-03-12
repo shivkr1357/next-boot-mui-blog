@@ -15,28 +15,28 @@ import { renderHTML } from "@/components/helpers/renderHTML";
 import Head from "next/head";
 // import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-const id = () => {
-  // const singlePost = JSON.parse(post);
+const id = ({ posts }) => {
+  const post = JSON.parse(posts);
 
-  // var creation = new Date(singlePost.created.seconds * 1000);
-  // const formattedDate = creation.toLocaleDateString("en-IN");
-  // const formattedTime = creation.toLocaleString("en-IN", {
-  //   hour: "numeric",
-  //   minute: "numeric",
-  //   hour12: true,
-  // });
-  // const newDate = `${formattedDate} ${formattedTime}`;
+  var creation = new Date(post.created.seconds * 1000);
+  const formattedDate = creation.toLocaleDateString("en-IN");
+  const formattedTime = creation.toLocaleString("en-IN", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  });
+  const newDate = `${formattedDate} ${formattedTime}`;
 
   return (
     <Fragment>
       <Head>
-        <title>{`Blog | ItsIndianGuy`}</title>
+        <title>{`${post.title} | ItsIndianGuy`}</title>
         <meta
           name="description"
-          content={"singlePost.desc.substring(0, 200)"}
+          content={post.desc.substring(0, 200)}
           key="desc"
         />
-        <meta property="article:author" content={`Shiv`} />
+        <meta property="article:author" content={post.author.name} />
         <meta
           property="article:publisher"
           content="https://www.facebook.com/itsindianguy/"
@@ -62,21 +62,22 @@ const id = () => {
                 fontSize: "30px",
                 fontWeight: 600,
               }}>
-              HELLO
-              {/* {singlePost.title ? (
-                singlePost.title
+              {post.title ? (
+                post.title
               ) : (
                 <Box sx={{ display: "flex", justifyContent: "center" }}>
                   <CircularProgress sx={{ alignContents: "center" }} />
                 </Box>
-              )} */}
+              )}
             </Box>
             <Box
               sx={{
                 ":first-letter": { fontSize: "35px" },
                 fontSize: "16px",
                 whiteSpace: "pre-line",
-              }}></Box>
+              }}>
+              {post.desc}
+            </Box>
             <Box>
               <Stack
                 direction="row"
@@ -99,41 +100,40 @@ const id = () => {
     </Fragment>
   );
 };
-// export const getStaticProps = async ({ params }) => {
-//   const getBlogsFromDB = async (id) => {
-//     const postCollectionRef = doc(db, "posts", id);
-//     const data = await getDoc(postCollectionRef);
-
-//     var post = data.data();
-
-//     return post;
-//   };
-
-//   return {
-//     props: {
-//       blog: await getBlogsFromDB(params.id),
-//     },
-//     revalidate: 60,
-//   };
-// };
-
-// export const getStaticPaths = async () => {
-//   let posts = [];
-
-//   const postCollectionRef = query(
-//     collection(db, "posts"),
-//     orderBy("created", "desc")
-//   );
-//   const res = await getDocs(postCollectionRef);
-//   res.docs.map((doc) => {
-//     posts.push({ ...doc.data(), id: doc.id });
-//   });
-
-//   const paths = posts.map((post) => {
-//     params: post.id;
-//   });
-
-//   return { paths, fallback: "blocking" };
-// };
 
 export default id;
+
+export async function getStaticPaths() {
+  let posts = [];
+
+  const postCollectionRef = query(
+    collection(db, "posts"),
+    orderBy("created", "desc")
+  );
+
+  const res = await getDocs(postCollectionRef);
+  res.docs.map((doc) => {
+    posts.push({ ...doc.data(), id: doc.id });
+  });
+
+  const paths = posts.map((post) => ({
+    params: {
+      id: post.id.toString(),
+    },
+  }));
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const postCollectionRef = doc(db, "posts", params.id);
+  const data = await getDoc(postCollectionRef);
+
+  var posts = JSON.stringify(data.data());
+
+  return {
+    props: {
+      posts,
+    },
+    revalidate: 60,
+  };
+}
