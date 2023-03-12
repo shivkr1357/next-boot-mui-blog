@@ -32,6 +32,11 @@
   padding: 10px;
 }
 
+.linkItem {
+  text-decoration: none;
+  color: black;
+}
+
 .DevCardsColumnsCard {
   width: 80%;
   height: 90%;

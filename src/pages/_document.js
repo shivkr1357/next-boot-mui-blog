@@ -25,6 +25,10 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7041907309370130"
+          crossOrigin="anonymous"></script>
       </body>
     </Html>
   );

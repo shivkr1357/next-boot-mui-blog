@@ -9,6 +9,7 @@ import {
   query,
 } from "firebase/firestore";
 import Head from "next/head";
+import Link from "next/link";
 import React, { Fragment } from "react";
 import { db } from "../../firebase/clientApp";
 
@@ -26,10 +27,13 @@ export default function blog({ allPosts }) {
         />
       </Head>
       <section className="container-fluid">
-        <div className="d-flex flex-wrap">
+        <div className="d-flex flex-wrap justify-content-center">
           {posts.map((post) => (
             <BlogCard post={post} key={post.id} />
           ))}
+        </div>
+        <div>
+          <Link href={"/blog"}> See All</Link>
         </div>
       </section>
     </Fragment>

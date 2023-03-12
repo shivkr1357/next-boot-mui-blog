@@ -44,13 +44,9 @@ export default function BlogCard({ post }) {
   });
   const newDate = `${formattedDate}`;
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-
   return (
     <Stack p={2}>
-      <Card sx={{ maxWidth: 270 }}>
+      <Card sx={{ maxWidth: 270, height: 450 }}>
         <Link href={`/blog/${post.id}`} style={{ textDecoration: "none" }}>
           <CardHeader
             avatar={
@@ -65,6 +61,7 @@ export default function BlogCard({ post }) {
             }
             title={post.title}
             subheader={newDate}
+            sx={{ height: 80 }}
           />
         </Link>
         <CardMedia

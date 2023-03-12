@@ -5,31 +5,33 @@ import CarouselComponent from "@/components/LangingPage/CarouselComponent";
 import AboutCard from "@/components/LangingPage/AboutCard";
 import DevCards from "@/components/LangingPage/DevCards";
 import PostCards from "@/components/LangingPage/PostCards";
-import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 import { db } from "../../firebase/clientApp";
+import BlogCard from "@/components/Blog/BlogCard";
 
-// export async function getServerSideProps() {
-//   let posts = [];
+export async function getStaticProps() {
+  let posts = [];
 
-//   const postCollectionRef = query(
-//     collection(db, "posts"),
-//     orderBy("created", "desc")
-//   );
+  const postCollectionRef = query(
+    collection(db, "posts"),
+    orderBy("created", "desc"),
+    limit(4)
+  );
 
-//   const res = await getDocs(postCollectionRef);
-//   res.docs.map((doc) => {
-//     posts.push({ ...doc.data(), id: doc.id });
-//   });
+  const res = await getDocs(postCollectionRef);
+  res.docs.map((doc) => {
+    posts.push({ ...doc.data(), id: doc.id });
+  });
 
-//   const allPosts = JSON.stringify(posts);
+  const allPosts = JSON.stringify(posts);
 
-//   return {
-//     props: { allPosts },
-//   };
-// }
+  return {
+    props: { allPosts },
+  };
+}
 
-export default function Home() {
-  // const posts = JSON.parse(allPosts);
+export default function Home({ allPosts }) {
+  const posts = JSON.parse(allPosts);
 
   return (
     <Fragment>
@@ -42,10 +44,6 @@ export default function Home() {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://itsindianguy.in/" />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7041907309370130"
-          crossorigin="anonymous"></script>
       </Head>
       <main className={`container-fluid ${styles.main}`}>
         <section className="row d-flex justify-content-center pl-4 pr-4 pt-4 shadow">
@@ -60,11 +58,11 @@ export default function Home() {
         </section>
         <section className="row mt-3 p-2">
           <h1>Post Highlights</h1>
-          {/* <div className={styles.postHighlights}>
+          <div className={styles.postHighlights}>
             {posts.map((post, key) => {
-              return <PostCards post={post} key={key} />;
+              return <BlogCard post={post} key={key} />;
             })}
-          </div> */}
+          </div>
         </section>
       </main>
     </Fragment>
