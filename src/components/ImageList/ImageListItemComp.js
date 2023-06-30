@@ -6,6 +6,8 @@ const ImageListItemComp = ({ itemData }) => {
   const sxScreen = useMediaQuery("(max-width:480px)");
   const mdScreen = useMediaQuery("(max-width:720px)");
   const lgScreen = useMediaQuery("(max-width:1080px)");
+  const exLgScreen = useMediaQuery("(max-width:1280px)");
+  const xxLgScreen = useMediaQuery("(max-width:1400px)");
 
   let cols;
   if (sxScreen) {
@@ -14,6 +16,10 @@ const ImageListItemComp = ({ itemData }) => {
     cols = 2;
   } else if (lgScreen) {
     cols = 3;
+  } else if (exLgScreen) {
+    cols = 3;
+  } else if (xxLgScreen) {
+    cols = 4;
   } else {
     cols = 5;
   }

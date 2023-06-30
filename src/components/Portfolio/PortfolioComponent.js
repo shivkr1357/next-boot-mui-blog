@@ -12,7 +12,8 @@ const PortfolioComponent = () => {
           alignItems: "center",
           padding: "10px",
           flexDirection: "column",
-        }}>
+        }}
+      >
         <Image
           width={400}
           height={400}
@@ -38,10 +39,15 @@ const PortfolioComponent = () => {
           Experiances : System Engineer &#44; Tata Consultancy Services LTD.
           Noida &#44; Date : 18-Feb-2021 to 20-March-2023
         </Typography>
-        {/* <Typography variant="a"></Typography> */}
-        <Typography variant="h4" fontSize={20} align={"center"}>
-          Contact
+        <Typography variant="h4" fontSize={16} align="center" p={2}>
+          Experiances : MERN Stack Developer &#44; Mechlin Services Private LTD.
+          Noida &#44; Date : 18-Feb-2021 to 20-March-2023
         </Typography>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        {/* <Typography variant="a"></Typography> */}
+        {/* <Typography variant="h4" fontSize={20} align={"center"}>
+          Contact
+        </Typography> */}
       </Box>
     </Stack>
   );
