@@ -1,10 +1,10 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import { Fragment } from "react";
-import CarouselComponent from "@/components/LangingPage/CarouselComponent";
+// import CarouselComponent from "@/components/LangingPage/CarouselComponent";
 import AboutCard from "@/components/LangingPage/AboutCard";
 import DevCards from "@/components/LangingPage/DevCards";
-import PostCards from "@/components/LangingPage/PostCards";
+// import PostCards from "@/components/LangingPage/PostCards";
 import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 import { db } from "../../firebase/clientApp";
 import BlogCard from "@/components/Blog/BlogCard";

@@ -1,9 +1,9 @@
-import Blog from "@/components/Blog/Blog";
+// import Blog from "@/components/Blog/Blog";
 import BlogCard from "@/components/Blog/BlogCard";
 import {
   collection,
-  doc,
-  getDoc,
+  // doc,
+  // getDoc,
   getDocs,
   orderBy,
   query,

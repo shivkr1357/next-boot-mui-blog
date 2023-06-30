@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
 import MemeComponent from "@/components/MemeComponent/MemeComponent";
 import Head from "next/head";
 

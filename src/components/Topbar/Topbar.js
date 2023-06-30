@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Container, Dropdown, Nav, Navbar, SplitButton } from "react-bootstrap";
 import { menu, dropDownMenu } from "@/config";
 import { useRouter } from "next/router";

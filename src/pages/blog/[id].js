@@ -10,7 +10,7 @@ import {
 } from "firebase/firestore";
 import { Box, CircularProgress, Stack, Typography } from "@mui/material";
 import { ThumbDown, ThumbUp } from "@mui/icons-material";
-import { renderHTML } from "@/components/helpers/renderHTML";
+// import { renderHTML } from "@/components/helpers/renderHTML";
 
 import Head from "next/head";
 // import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
@@ -18,14 +18,14 @@ import Head from "next/head";
 const id = ({ posts }) => {
   const post = JSON.parse(posts);
 
-  var creation = new Date(post.created.seconds * 1000);
-  const formattedDate = creation.toLocaleDateString("en-IN");
-  const formattedTime = creation.toLocaleString("en-IN", {
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
-  });
-  const newDate = `${formattedDate} ${formattedTime}`;
+  // var creation = new Date(post.created.seconds * 1000);
+  // const formattedDate = creation.toLocaleDateString("en-IN");
+  // const formattedTime = creation.toLocaleString("en-IN", {
+  //   hour: "numeric",
+  //   minute: "numeric",
+  //   hour12: true,
+  // });
+  // const newDate = `${formattedDate} ${formattedTime}`;
 
   return (
     <Fragment>
@@ -50,7 +50,8 @@ const id = ({ posts }) => {
           sx={{
             display: { xs: "flex", sm: "flex" },
             width: { xs: "100%", sm: "90%" },
-          }}>
+          }}
+        >
           <Stack spacing={2} p={1} sx={{ display: "flex", width: "100%" }}>
             {/* <Box>
               <Image src="" alt="" />
@@ -61,7 +62,8 @@ const id = ({ posts }) => {
                 color: "blue",
                 fontSize: "30px",
                 fontWeight: 600,
-              }}>
+              }}
+            >
               {post.title ? (
                 post.title
               ) : (
@@ -75,7 +77,8 @@ const id = ({ posts }) => {
                 ":first-letter": { fontSize: "35px" },
                 fontSize: "16px",
                 whiteSpace: "pre-line",
-              }}>
+              }}
+            >
               {post.desc}
             </Box>
             <Box>
@@ -87,7 +90,8 @@ const id = ({ posts }) => {
                   alignItems: "center",
                   paddingBottom: "50px",
                   paddingTop: "50px",
-                }}>
+                }}
+              >
                 <Typography variant="h6"> Was this page helpful? </Typography>
                 <ThumbUp sx={{ cursor: " pointer" }} />
                 <ThumbDown sx={{ cursor: " pointer" }} />
