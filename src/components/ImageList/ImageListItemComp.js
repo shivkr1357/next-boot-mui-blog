@@ -15,10 +15,10 @@ const ImageListItemComp = ({itemData}) => {
         >
           {itemData.map((item, key) => (
             <ImageListItem key={key} >
-              <Image
-              width={300}
-              height={300}
-              style={{ margin : "20px"}}
+              <img
+              style = {{width:300,
+              height:300,margin : "20px"}}
+
                 src={`/memes/${item} `}
                 alt={"Memes"}
                 // loading="lazy"
