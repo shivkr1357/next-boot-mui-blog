@@ -1,7 +1,8 @@
+
+import React, { useEffect, useState } from 'react'
 import LoadMoreButton from '@/components/Button/LoadMoreButton';
 import ImageList from '@/components/ImageList/ImageListItemComp';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react'
 
 const memes = () => {
     const [fileNames, setFileNames] = useState([]);
@@ -44,6 +45,7 @@ const memes = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
       }, [loading]);
+      
   return (
     <div style={{ width :"100%"}}>
            <ImageList itemData={fileNames} />
