@@ -55,7 +55,7 @@ const MemeComponent = () => {
       <div style={{ display:"flex", justifyContent:"center", alignItems:"center", marginBottom:"20px" }}>
 
       {loading && <div>Loading </div>}
-      {error && <p>Error: {error.message}</p>}
+      {error && <p>Error: {error}</p>}
       </div>
     
   
