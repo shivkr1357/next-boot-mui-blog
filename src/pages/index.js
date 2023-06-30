@@ -46,10 +46,10 @@ export default function Home({ allPosts }) {
         <link rel="canonical" href="https://itsindianguy.in/" />
       </Head>
       <main className={`container-fluid ${styles.main}`}>
-        <section className="row d-flex justify-content-center pl-4 pr-4 pt-4 shadow">
+        {/* <section className="row d-flex justify-content-center pl-4 pr-4 pt-4 shadow">
           <h3 className="d-flex justify-content-center">Projects</h3>
           <CarouselComponent />
-        </section>
+        </section> */}
         <section className="row mt-3 pt-2">
           <AboutCard />
         </section>
