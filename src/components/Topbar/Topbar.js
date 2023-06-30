@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import {
   Container,
+  Dropdown,
   Form,
   Nav,
   Navbar,
@@ -21,6 +22,7 @@ const Topbar = () => {
   }, []);
 
   const router = useRouter();
+
   function activeClass(path) {
     if (router.pathname === path) {
       return styles.active;
@@ -37,8 +39,16 @@ const Topbar = () => {
     }
   }
 
+
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+    <Navbar
+      bg="dark"
+      variant="dark"
+      expand="lg"
+      sticky="top"
+      collapseOnSelect
+      className={styles.topbar}
+    >
       <Container fluid>
         <Navbar.Brand href="/">ItsIndianGuy</Navbar.Brand>
         <Navbar.Toggle
@@ -49,7 +59,8 @@ const Topbar = () => {
           <Nav
             className="me-auto my-2 my-lg bg-dark"
             style={{ maxHeight: "100px" }}
-            navbarScroll>
+            navbarScroll
+          >
             {menu.map((item, key) => {
               return (
                 <Link
@@ -61,8 +72,9 @@ const Topbar = () => {
                     padding: "5px",
                     alignItems: "center",
                     justifyContent: "center",
-                    textDecoration: "none",
-                  }}>
+                    textDecoration: "none",    
+                    marginRight: "10px"             }}
+                >
                   {item.title}
                 </Link>
               );
@@ -72,50 +84,61 @@ const Topbar = () => {
                 <Link
                   key={key}
                   className={styles.menuLinkItems}
-                  href={item.path}>
+                  href={item.path}
+                >
                   {item.title}
                 </Link>
               );
             })}
 
             <SplitButton
-              className={`super-colors ${styles.dropdown}`}
+              className={styles.dropdownMenu}
               title={<span>Interview QA</span>}
               id="navbarScrollingDropdown"
-              variant="secondary">
-              {dropDownMenu.map((item, key) => {
-                return (
+              variant="secondary"
+              style={{ backgroundColor: "bisque" }}
+            >
+              {dropDownMenu.map((item, key) => (
+                <Dropdown.Item
+                  key={key}
+                  className={activeMenuClass(item.path)}
+                  style={{
+                    display: "flex",
+                    width: "200px",
+                    padding: "10px",
+                    margin: "5px",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    textDecoration: "none",
+                    backgroundColor: "gray",
+                    color: "white",
+                  }}
+                >
                   <Link
-                    key={key}
-                    className={activeMenuClass(item.path)}
-                    href={item.path}
                     style={{
-                      display: "flex",
-                      width: "200px",
-                      padding: "10px",
-                      margin: "5px",
-                      alignItems: "center",
                       justifyContent: "center",
                       textDecoration: "none",
                       backgroundColor: "gray",
                       color: "white",
-                    }}>
+                    }}
+                    href={item.path}
+                  >
                     {item.title}
                   </Link>
-                );
-              })}
+                </Dropdown.Item>
+              ))}
             </SplitButton>
           </Nav>
-          <Form className="d-flex">
+          {/* <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
               className="me-3"
               aria-label="Search"
             />
-          </Form>
+          </Form> */}
 
-          <Image
+          {/* <Image
             src="/assets/person/1.jpeg"
             width={35}
             height={35}
@@ -127,7 +150,7 @@ const Topbar = () => {
             className={styles.logo}
             alt=""
             onClick={() => router.push("/about")}
-          />
+          /> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>

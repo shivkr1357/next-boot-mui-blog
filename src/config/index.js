@@ -19,6 +19,11 @@ export const menu = [
   //   path: "/portfolio",
   //   title: "Portfolio",
   // },
+    {
+    id: "Memes",
+    path: "/memes",
+    title: "Memes",
+  },
 ];
 export const dropDownMenu = [
   {

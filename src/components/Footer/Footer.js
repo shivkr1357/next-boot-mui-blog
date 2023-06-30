@@ -6,7 +6,7 @@ import FooterPart3 from "./FooterPart3";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer style={{ width: "100%", marginBottom: "0px" }}>
       <div
         className="container-fluid"
         style={{
@@ -14,7 +14,8 @@ const Footer = () => {
           color: "white",
           height: "100%",
           padding: "30px",
-        }}>
+        }}
+      >
         <div className="row p-2 m-2 justify-content-center align-item-center">
           <div className="col-lg-3 mb-3 d-flex justify-content-center">
             <FooterPart1 />

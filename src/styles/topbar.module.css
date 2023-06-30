@@ -1,20 +1,27 @@
+.topbar {
+  min-height: 80px;
+  max-height: 350px;
+}
+
 .navLinks {
   color: white;
   margin: 5px;
 }
 .navLinks:hover {
-  background-color: tomato;
+  background-color: rgb(71, 203, 255);
   border-radius: 5px;
+  padding: 100px;
   color: white;
   transition: all 0.2s ease-in;
 }
 .active {
-  background-color: tomato;
+  background-color: rgb(71, 203, 255);
   color: white;
   border-radius: 5px;
 }
 .active:hover {
   color: white;
+  padding: 10px;
 }
 .menuLinks {
   display: block;
@@ -23,11 +30,40 @@
   display: none;
 }
 
+.dropdownMenu {
+  background-color: bisque;
+}
 @media screen and (max-width: 640px) {
   .logo {
     display: none;
   }
-  .dropdown {
+  .dropdownMenu {
+    display: none;
+  }
+  .menuLinks {
+    display: none;
+  }
+  .menuLinkItems {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+  }
+  .menuLinkItems:hover {
+    background-color: tomato;
+    border-radius: 5px;
+    color: white;
+    transition: all 0.2s ease-in;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .logo {
+    display: none;
+  }
+  .dropdownMenu {
     display: none;
   }
   .menuLinks {

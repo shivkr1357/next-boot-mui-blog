@@ -29,16 +29,18 @@ const addBlog = (req, res) => {
 const getBlogs = async (req, res) => {
   let myfile;
   let blogs = [];
-  let data = await fs.promises.readdir("blogData");
+  let data = await fs.promises.readdir("src/assets/memes");
+  
+  const pageSize = 20;
+  const currentPage = req.query.page || 1;
 
-  for (let index = 0; index < data.length; index++) {
-    myfile = await fs.promises.readFile(`blogData/${data[index]}`, "utf-8");
+  const startIndex = (currentPage - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
+  const slicedFileNames = fileNames.slice(startIndex, endIndex);
 
-    blogs.push(JSON.parse(myfile));
-  }
+  res.status(200).json({ fileNames: slicedFileNames });
 
-  // console.log(blogs);
-  res.status(200).json({ blogs });
+  res.status(200).json({ data });
 };
 
 export default function handler(req, res) {
