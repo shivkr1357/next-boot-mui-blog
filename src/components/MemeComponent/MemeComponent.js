@@ -16,17 +16,19 @@ const MemeComponent = () => {
         setLoading(true)
         setError(null)
     
-    try {
-        const response = await fetch(`/api/memes?page=${page}`);
-      const data = await response.json();
-      setFileNames([...fileNames, ...data.fileNames]);
-      setPage(prevPage => prevPage + 1)
-        
-    } catch (error) {
+   
+     fetch(`/api/memes?page=${page}`).
+     then(res => 
+        res.json()
+      ).then(res => {
+        setFileNames([...fileNames, ...res.fileNames]);
+        setPage(prevPage => prevPage + 1)
+      }).catch((error) => {
         setError(error)
-    }finally {
+      }).finally(() => {
         setLoading(false)
-    }
+      });
+  
       
     };
 

@@ -7,7 +7,6 @@ import MemeComponent from '@/components/MemeComponent/MemeComponent';
 
 const memes = () => {
    
-    
 
   return (
     
