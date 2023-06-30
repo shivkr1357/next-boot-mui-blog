@@ -17,9 +17,9 @@ const getBlogs = async (req, res) => {
     const endIndex = startIndex + pageSize;
     const slicedFileNames = data.slice(startIndex, endIndex);
   
-    res.status(200).json({ fileNames: slicedFileNames });
+    // res.status(200).json({ fileNames: slicedFileNames });
   
-    // res.status(200).json({ data });
+    res.status(200).json({ data });
   };
   
   export default function handler(req, res) {
