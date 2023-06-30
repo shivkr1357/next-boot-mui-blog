@@ -1,26 +1,11 @@
 import React, { useEffect } from "react";
-import {
-  Container,
-  Dropdown,
-  Form,
-  Nav,
-  Navbar,
-  NavDropdown,
-  SplitButton,
-} from "react-bootstrap";
+import { Container, Dropdown, Nav, Navbar, SplitButton } from "react-bootstrap";
 import { menu, dropDownMenu } from "@/config";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import styles from "@/styles/topbar.module.css";
-import Image from "next/image";
 
 const Topbar = () => {
-  useEffect(() => {
-    typeof document !== undefined
-      ? require("bootstrap/dist/js/bootstrap")
-      : null;
-  }, []);
-
   const router = useRouter();
 
   function activeClass(path) {
@@ -38,7 +23,6 @@ const Topbar = () => {
       return styles.menuLinks;
     }
   }
-
 
   return (
     <Navbar
@@ -72,8 +56,9 @@ const Topbar = () => {
                     padding: "5px",
                     alignItems: "center",
                     justifyContent: "center",
-                    textDecoration: "none",    
-                    marginRight: "10px"             }}
+                    textDecoration: "none",
+                    marginRight: "10px",
+                  }}
                 >
                   {item.title}
                 </Link>

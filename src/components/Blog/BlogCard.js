@@ -12,10 +12,8 @@ import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Stack } from "@mui/material";
-import { format } from "timeago.js";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
@@ -31,17 +29,17 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function BlogCard({ post }) {
-  const router = useRouter();
+  // const router = useRouter();
 
-  const [expanded, setExpanded] = React.useState(false);
+  // const [expanded, setExpanded] = React.useState(false);
 
   var creation = new Date(post.created.seconds * 1000);
   const formattedDate = creation.toLocaleDateString("en-IN");
-  const formattedTime = creation.toLocaleString("en-IN", {
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
-  });
+  // const formattedTime = creation.toLocaleString("en-IN", {
+  //   hour: "numeric",
+  //   minute: "numeric",
+  //   hour12: true,
+  // });
   const newDate = `${formattedDate}`;
 
   return (
@@ -84,9 +82,10 @@ export default function BlogCard({ post }) {
           </IconButton>
 
           <ExpandMore
-            expand={expanded}
-            aria-expanded={expanded}
-            aria-label="show more">
+            // expand={expanded}
+            // aria-expanded={expanded}
+            aria-label="show more"
+          >
             {/* <Link href={`/blog/${post.id}`}>
               <ExpandMoreIcon />
             </Link> */}

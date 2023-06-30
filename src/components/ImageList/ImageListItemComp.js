@@ -1,6 +1,6 @@
 import { ImageListItem, ImageList, useMediaQuery } from "@mui/material";
-import Image from "next/image";
-import React, { Fragment, useEffect, useState } from "react";
+
+import React, { Fragment, useState } from "react";
 import ImageViewModal from "../ImageViewComponent/ImageViewModal";
 
 const ImageListItemComp = ({ itemData }) => {
